@@ -1,7 +1,2 @@
-# Ignore .txt files.
-
-*.txt
-
-# Ignore .txt in only test dir.
-  
-test/
+# Ignore .txt files in test dir.
+test/*.txt
