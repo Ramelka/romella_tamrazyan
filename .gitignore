@@ -1,2 +1,2 @@
 # Ignore .txt files in test dir.
-Ramelka/romella_tamrazyan/git_homework_1/test/**/*.txt
+Ramelka/romella_tamrazyan/git_homework_1/test/*.txt
