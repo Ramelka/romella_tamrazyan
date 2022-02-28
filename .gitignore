@@ -1,2 +1,2 @@
 # Ignore .txt files in test dir.
-test/*.txt
+test/**/*.txt
