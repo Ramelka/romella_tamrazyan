@@ -1,4 +1,4 @@
 # Ignore .txt files.
 *.txt
 # Ignore .txt in only test dir.
-~/Desktop/project/git/test
+  test/
