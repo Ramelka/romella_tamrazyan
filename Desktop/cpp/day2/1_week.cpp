@@ -5,7 +5,7 @@ int main() {
     
     int weeknum;
     
-    cout << "Please write a number of the week and I'll say the name of that day."
+    cout << "Please write a number of the week and I'll say the name of that day." << endl;
     cin >> weeknum;
     
     switch (weeknum) {
@@ -30,6 +30,9 @@ int main() {
 	case 7 :
            cout << "The seventh day of week is Sunday.";
            break;
+	default :
+	   cout << "A week has only 7 days.";
+	   break;
     }
     return 0;	    
 }
