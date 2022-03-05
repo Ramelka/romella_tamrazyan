@@ -26,6 +26,6 @@ int main() {
       break;
     default :
       cout << "This operator isn't defined.Please use +,-,*,/";
-  return 0;
   }
+  return 0;
 }
