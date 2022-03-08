@@ -5,7 +5,11 @@ using namespace std;
 int main() {
     
   char letter;
-  cout << "Write any letter of alphabet to determine its type." << "\n";
+  
+  do {
+    cout << "Write any letter of alphabet to determine its type." << "\n";
+  } while (letter < 'A' || letter > 'z');
+  
   cin >> letter;
   
   switch (letter) {
@@ -14,6 +18,11 @@ int main() {
     case 'o' :
     case 'e' :
     case 'u' :
+    case 'A' :
+    case 'I' :
+    case 'O' :
+    case 'E' :
+    case 'U' :
       cout << "It's a vowel sound.";
       break;
     default :
