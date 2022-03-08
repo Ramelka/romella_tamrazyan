@@ -22,6 +22,9 @@ int main() {
       cout << num1 * num2;
       break;
     case '/' :
+      if (num2 == 0) {
+        cout << "Can't divide by zero.";
+      } break; 
       cout << num1 / num2;
       break;
     default :
