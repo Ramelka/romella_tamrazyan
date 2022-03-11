@@ -28,9 +28,10 @@ int main() {
     for (int j = 0; j < size; j++) {
 
       if (letter == arr[i][j])	
-        cout << "Row: " << i + 1 << endl << "Column: " << j + 1 << endl;
+        cout << "Row: " << i + 1 << " " << "Column: " << j + 1 << endl;
     }
+    cout << endl;
   } 
 
-return 0;
+  return 0;
 }
