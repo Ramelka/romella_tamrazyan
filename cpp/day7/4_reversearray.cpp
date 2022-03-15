@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdlib>
-
+ 
 using namespace std;
 
 void reverse(int *arr, int size);
