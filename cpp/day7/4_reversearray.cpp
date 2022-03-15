@@ -36,4 +36,3 @@ void reverse(int *arr, int size) {
     cout << * (arr + i) << " ";
   }
 }
-
