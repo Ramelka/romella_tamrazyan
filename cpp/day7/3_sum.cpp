@@ -1,25 +1,32 @@
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
-void sum(int *arr, int size);
+int sumOfArray(int *arr, int size);
 
 int main() {
+  const int n = 5;
+  int arr[n];
  
-  int arr[20] = { 10, 0, 2, -5, -15, 30 };
-  sum(arr, 20);
- 
+  for (int i = 0; i < n; i++) {
+    arr[i] = rand() % 10;
+    cout << arr[i] << " ";
+  }
+  
+  cout << endl;
+  
+  int sum = sumOfArray(arr, n);
+  
+  cout << "Sum of array numbers = " << sum << endl;
   return 0;
 }
 
-void sum(int *arr, int size) {
+int sumOfArray(int *arr, int size) {
     
   int sum = 0;
-  int *ptr;
-  ptr = arr;
-  for (int i = 0; i < size; i++) {
-    sum = sum + *(arr + i);
+  for (int *ptr = arr; ptr != (arr + size); ptr++) {
+    sum += *ptr;
   }
-    cout << "Sum of array numbers = " << sum << endl;
-}
-  
+  return sum;
+fghfhfhfh}
