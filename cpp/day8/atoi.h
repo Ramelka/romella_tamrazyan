@@ -1,2 +1,2 @@
 #include <iostream>
-int atoi(char* x);
+int own_atoi(char* x);

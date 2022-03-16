@@ -29,4 +29,4 @@ int sumOfArray(int *arr, int size) {
     sum += *ptr;
   }
   return sum;
-fghfhfhfh}
+}
