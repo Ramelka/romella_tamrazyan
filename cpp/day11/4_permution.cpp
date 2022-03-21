@@ -24,14 +24,14 @@ void swap(char* a, char* b) {
   *a = *b;
   *b = temp;
 }
-void permute(char* a, int left, int right) {
+void permute(char* w, int left, int right) {
   if (left == right) {
-    cout << a << endl;
+    cout << w << endl;
     } else {
         for (int i = left; i < right; i++) {
-          swap((a + left),(a + i));
-          permute(a, left + 1, right);
-          swap((a + left),(a + i));
+          swap((w + left),(w + i));
+          permute(w, left + 1, right);
+          swap((w + left),(w + i));
         }
       }  
 }
