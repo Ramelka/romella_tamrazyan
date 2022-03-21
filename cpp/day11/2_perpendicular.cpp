@@ -12,7 +12,7 @@ int main() {
   for (int i = 0; i < 4; i++) {
     cin >> x[i] >> y[i];
   }  
-  
+ 
   system("clear");
   
   PrintArray(x, y);  
