@@ -9,9 +9,8 @@ int main() {
   const int m = 5;
   int arr[m] = {1, 2, 3, 4, 5};
  
-  //cout << "Enter a number to swap indexes" << endl;
- 
   PrintArray(arr, m);
+
   cout << endl <<"Enter index positions to swap" << endl << "p1 = ";
   cin >> p1;
   cout << "p2 = ";
@@ -30,5 +29,4 @@ void PrintArray(int arr[], int m) {
       cout << arr[i] << " ";
     }
 }
-
 
