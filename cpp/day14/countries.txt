@@ -1,0 +1,6 @@
+Armenia Yerevan .am 2963 2974 1265
+Russia Moscow .ru 1441 1711 1483
+France Paris .fr 6739 5439 2603
+Italy Rome .it 5955 3020 1886
+USA Washington .us 3295 9834 2094
+Singapore Singapore .sg 5686 728 3411
