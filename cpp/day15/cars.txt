@@ -1,0 +1,6 @@
+Toyota Camry 11500 160000 2.5 automatic black
+Toyota Corolla 13000 89000 1.8 automatic white
+BMW X6 25000 119000 4.4 automatic black
+Hyunday Elantra 9700 48000 1.8 mechanic blue
+Lexus GS 26500 100000 3.5 automatic white
+Opel Vectra 3500 170000 1.6 mechanic grey
