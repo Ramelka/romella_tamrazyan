@@ -23,7 +23,7 @@ enum PhoneCodes {
   Singapore = 65, 
 };
 		
-int main(int argc, char* argv[]) {
+int main() {
   
   ifstream f;
   f.open("countries.txt");
@@ -36,22 +36,23 @@ int main(int argc, char* argv[]) {
  
   int i = 0, j = 0;
   while (!f.eof()) {
-      for (; i < 6; i++) {
-      getline(f, data);
+     
+      f >> data;
       s[i] = data;
+      i++;
          
-      if (i == 5) {
+      if (i == 6) {
           info[j].country = s[0];
           info[j].capital = s[1];
           info[j].domain = s[2];
-		 /* info[j].population = stoi(s[3]);
-		  info[j].area = stoi(s[4]);
-		  info[j].gdp = stoi(s[5]);
-          info[j].phonecode = arr_phonecode[j];*/
+	  info[j].population = stoi(s[3]);
+	  info[j].area = stoi(s[4]);
+	  info[j].gdp = stoi(s[5]);
+          info[j].phonecode = arr_phonecode[j];
           i = 0;
           j++;
        }
-    }
+    
   } 
       
   f.close();
