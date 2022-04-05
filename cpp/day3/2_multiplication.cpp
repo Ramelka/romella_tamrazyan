@@ -2,18 +2,25 @@
 
 using namespace std;
 
+int multiplicate(int, int);
 int main () {
 
-  int n;
+  int num = 0;
 
   cout << "Please enter a number." << endl;
-  cin >> n;
+  cin >> num;
 
-  for (int m = 0; m < 10; m++) {
-    cout << n << " x " << m << " = " << (n * m) << endl; 
+  for (int quant = 0; quant < 10; quant++) {
+    cout << num << " x " << quant << " = " << multiplicate(num, quant) << endl; 
   }
 
   return 0;
+}
+int multiplicate(int num, int quant) {
+  int sum = 0;
+  sum = num * quant;
+
+  return sum;
 }
 
 
