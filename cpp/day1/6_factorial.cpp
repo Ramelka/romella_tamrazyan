@@ -3,21 +3,21 @@
 using namespace std;
 
 int main () {
-  
-	int answer;
-  	int sum;
-  
-  	cout << "Please enter a number " << endl;
-  	cin >> answer;
 
-  	sum = answer;
+  int num;
+  int sum;
   
-  	while (answer > 1) {
-      	answer = answer - 1;
-      	sum = sum * answer;
-  	}
+  cout << "Please enter a number " << endl;
+  cout << "Num = "; cin >> num;
 
-  	cout << sum << endl;
+  sum = num;
+  
+  while (num > 1) {
+      num--;
+      sum = sum * num;
+  }
+
+  cout << "Factorial" << " = " << sum << endl;
   	
 	return 0;
 }
