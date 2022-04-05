@@ -4,13 +4,12 @@
 using namespace std;
 
 bool perfnum(int);
-
 int main() {
   
-  int n;
+  int num;
   cout << "Please enter a natural number." << endl;
-  cin >> n;
-  if (perfnum(n) == true)
+  cin >> num;
+  if (perfnum(num) == true)
        cout << "The number is perfect." << endl;
   else cout << "The num isn't perfect." << endl;
 
