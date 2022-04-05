@@ -1,28 +1,26 @@
 #include <iostream>
-#include <cstdlib>
+
 using namespace std;
 
 int main () {
 
-    int a, b;
+  int length = 0, width = 0, P = 0, S = 0;
   
-    //Answering the sides of rectangle.
-    cout << "What are the sides of a rectangle?" << endl;
+  do {
+  cout << "What are the sides of a rectangle?" << endl;
+  cout << "width = "; cin >> width;
+  cout << "length = "; cin >> length;
+  } while (length < width);
 
-    cin >> a >> b;
+  cout << "______________" << endl;
+
+  P = 2 * (width + length);
+
+  cout << "P = " << P << endl;
+
+  S = width * length;
+
+  cout << "S = " << S << endl;
     
-    system("clear");
-    
-    //Counting the perimeter(P) and area(S).
-    cout << "a = " << a << "," << "b = " << b << endl;
-
-    int P = 2 * (a + b);
-
-    cout << "P = " << P << endl;
-
-    int S = a * b;
-
-    cout << "S = " << S;
-    
-    return 0;
+  return 0;
 }
