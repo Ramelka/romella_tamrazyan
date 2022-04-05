@@ -7,8 +7,8 @@ using namespace std;
 int main() {
   int num;
   do {
-    cout << "How many numbers do you want to generate?" << endl;
-    cin >> num;
+      cout << "How many numbers do you want to generate?" << endl;
+      cin >> num;
   } while (num > 100);
   
   int array[100];
