@@ -1,28 +1,20 @@
 #include <iostream>
 #include <cstdlib>
+
 using namespace std;
 
 int main () {
 
-    int chickens, cows, pigs, legs;
+  int chickens = 0, cows = 0, pigs = 0, legs = 0;
     
-    //Getting the numbers of each animal.
-    cout << "How many chickens do you have?" << endl;
-    cin >> chickens;
-    cout << "How many cows do you have?" << endl;
-    cin >> cows;
-    cout << "How many pigs do you have?" << endl;
-    cin >> pigs;
+  cout << "\t How many chickens, cows and pigs do you have?" << endl; 
+  cout << "Chickens = "; cin >> chickens;
+  cout << "Cows = "; cin >> cows;
+  cout << "Pigs = "; cin >> pigs;
     
-    system("clear");
-    
-    //Declare the data.
-    cout << "chickens = " << chickens << endl;
-    cout << "cows = " << cows << endl;
-    cout << "pigs = " << pigs << endl;
-    
-    //Counting the total legs of animals.
-    legs = chickens * 2 + 4 * (cows + pigs);
-    cout << "legs = " << legs;
-    return 0;
+  legs = chickens * 2 + 4 * (cows + pigs);
+  cout << "________________" << endl;
+  cout << "Legs = " << legs << endl;
+
+  return 0;
 }   
