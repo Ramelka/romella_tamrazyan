@@ -5,25 +5,28 @@ using namespace std;
 void binary(int);
 
 int main() {
-  int n;
+  
+  int num;
   cout << "Enter a natural number to convert it to binary" << endl;
-  cin >> n;
-  binary(n);
+  cin >> num;
+
+  binary(num);
 
   return 0;
 }
 
-void binary(int n) {
+void binary(int number) {
   
   int array[50];
-  int i;  
-  for (i = 0; n > 0; i++) {
-    array[i] = n % 2;
-    n = n / 2;
+  int i;
+  
+  for (i = 0; number > 0; i++) {
+      array[i] = number % 2;
+      number = number / 2;
   }
   
-  for (int x = i - 1; x>= 0; x--) {
-    cout << array[x];
+  for (int x = i - 1; x >= 0; x--) {
+      cout << array[x];
   }
-    cout << endl;
+  cout << endl;
 }
