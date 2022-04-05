@@ -11,10 +11,12 @@ int main () {
     if (leap(year)) {
       year += 4;
     } 
-  }  
+  }
+  cout << endl;  
   return 0;
 }
 int leap(int year) {
   if (year % 4 == 0 && year % 100 != 0)
-    cout << year << endl;
+  cout << year << ",";
+  return year;
 }
