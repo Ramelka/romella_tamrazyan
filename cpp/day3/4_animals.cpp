@@ -8,18 +8,16 @@ int legcount(int ch, int c, int p) {
 
 int main () {
 
-  int ch, c, p, legs; // ch for chicken; c for cow; p for pig 
+  int chickens = 0, cows = 0, pigs = 0, legs = 0; 
 
-  cout << "How many chickens,cows and pigs do you have?" << endl;
-  cin >> ch >> c >> p;
+  cout << "How many chickens,cows and pigs do you have?" << endl; 
+  cout << "chickens = "; cin >> chickens;
+  cout << "cows = "; cin >> cows;
+  cout << "pigs = "; cin >> pigs;
   
-  cout << "chickens = " << ch << endl;
-  cout << "cows = " << c << endl;
-  cout << "pigs = " << p << endl;
+  legs = legcount(chickens, cows, pigs);
   
-  legs = legcount(ch, c, p);
-  
-  cout << "Total legs = " << legs;
+  cout << "Total legs = " << legs << endl;
   
   return 0;
 }
