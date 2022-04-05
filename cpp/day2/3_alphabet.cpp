@@ -7,8 +7,8 @@ int main() {
   char letter;
   
   do {
-    cout << "Write any letter of alphabet to determine its type.\n";
-    cin >> letter;
+      cout << "Write any letter of alphabet to determine its type.\n";
+      cin >> letter;
   } while ((letter < 'A' || letter > 'Z') && (letter < 'a' || letter > 'z'));
   
   switch (letter) {
