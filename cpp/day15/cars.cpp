@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> 
 #include <string>
 #include <fstream>
 #include <cstring>
@@ -18,11 +18,11 @@ struct details {
 struct features {
   string car = "";
   string model = "";
-  double min_price;
-  double max_price;
-  double min_mileage;
-  double max_mileage;
-  double engine_size;
+  string min_price = "";
+  string max_price = "";
+  string min_mileage = "";
+  string max_mileage = "";
+  string engine_size = "";
   string transmission_box = "";
   string colour = "";
   string l = "-";
@@ -72,28 +72,63 @@ int main() {
   cout << "Engine size: "; cin >> input.engine_size;
   cout << "Transmission box: "; cin >> input.transmission_box;
   cout << "Colour: "; cin >> input.colour;
- // string l = "-";
+  
+  double max1 = stod(input.max_price);
+  double min1 = stod(input.min_price);
+  double max2 = stod(input.max_mileage);
+  double min2 = stod(input.min_mileage);
+  double engine = stod(input.engine_size);
+
   for (int i = 0; i < 7; i++) {
+    if (input.min_mileage != input.l && max1 > min1 ) {
       if (info[i].car != input.car && input.car != input.l ) {
           continue;
       }
-      /*if ((info[i].price < input.min_price || info[i].price > input.max_price) && input.min_price != input.l) {
+      if ((info[i].price < min1 || info[i].price > max1) && input.min_price != input.l) {
           continue;
       }
-      if ((info[i].mileage < input.min_mileage || info[i].mileage > input.max_mileage) && input.min_mileage != input.l) {
+      if ((info[i].mileage < min2 || info[i].mileage > max2) && input.min_mileage != input.l) {
           continue;
       }
-      if (info[i].engine_size != input.engine_size && input.engine_size != l) {
+      if (info[i].engine_size != engine && input.engine_size != input.l) {
           continue;
-      }*/
+      }
       if (info[i].transmission_box != input.transmission_box && input.transmission_box != input.l) {
           continue;
       }
       if (info[i].colour != input.colour && input.colour != input.l) {
           continue;
       }
-       func(info[i]);
-  }
+      func(info[i]);
+    
+    } else {
+      if (info[i].car != input.car && input.car != input.l ) { 
+          continue;
+      }   
+      if (info[i].price > min1 && input.min_price != input.l) {
+          continue;
+      }   
+      if ((info[i].mileage < min2 || info[i].mileage > max2) && input.min_mileage != input.l) {
+          continue;
+      }   
+      if (info[i].engine_size != engine && input.engine_size != input.l) {
+          continue;
+      }   
+      if (info[i].transmission_box != input.transmission_box && input.transmission_box != input.l) {
+          continue;
+      }   
+      if (info[i].colour != input.colour && input.colour != input.l) {
+          continue;
+      }   
+      func(info[i]);
+
+
+
+
+
+
+     }
+  } 
 
   return 0;
 }
