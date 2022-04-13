@@ -14,5 +14,4 @@ class Polynomial {
       void Multiply();
 };
 
-
 #endif
