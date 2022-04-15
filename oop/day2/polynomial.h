@@ -2,16 +2,18 @@
 #define POLYNOMIAL_H
 
 class Polynomial {
-  private:
-      int _degree1, _degree2;
-      int *arr1 = new int[_degree1 + 1];
-      int *arr2 = new int[_degree2 + 1];
-      int *arr3 = new int[10];
   public:
+      int _degree;
+      int *coeff;
       void InputPolynomial();
-      void Add();
-      void Subtract();
-      void Multiply();
+      void PrintPolynomial(int _degree, int *coeff);
+      void Add(Polynomial p1, Polynomial p2);
+      Polynomial operator+(const Polynomial& poly);
+      void Subtract(Polynomial p1, Polynomial p2);
+      Polynomial operator-(const Polynomial poly);
+      void Multiply(Polynomial p1, Polynomial p2);
+      Polynomial operator*(const Polynomial poly);
+      void MultiplyByNumber(int num, Polynomial p1);
 };
 
 #endif
