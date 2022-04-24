@@ -4,24 +4,24 @@
 
 using namespace std;
 
-Node::Node() 
+Node::Node()
 {
-	next = NULL;
+    next = NULL;
 }
 
 LinkedList::LinkedList()
-{   
-	head = NULL;
+{
+    head = NULL;
     tail = NULL;
 }
 
 Node *LinkedList::GetHead() {
-	return head;
+    return head;
 }
 
 void LinkedList::Add(int num) {
-	
-	Node *new_node = new Node;
+
+    Node *new_node = new Node;
     new_node->data = num;
     new_node->next = NULL;
 
@@ -38,7 +38,7 @@ void LinkedList::AddAt(Node *prev_node, int value) {
 
     if (prev_node == NULL) {
         cout << " The previous node mustn't be NULL" << endl;
-        return;   
+        return;
     }
     Node *new_node = new Node();
     new_node->data = value;
@@ -47,8 +47,8 @@ void LinkedList::AddAt(Node *prev_node, int value) {
 }
 
 void LinkedList::Remove() {
-    
-	Node *temp1 = head;
+
+    Node *temp1 = head;
     if (temp1 == NULL) {
         cout << "List is empty" << endl;
     } else if (temp1->next == NULL) {
@@ -65,11 +65,11 @@ void LinkedList::Remove() {
 }
 
 void LinkedList::RemoveAt(Node *given) {
-	
-	Node *temp;
-	temp = given->next;
-	given->next = temp->next;
-	delete temp;
+
+    Node *temp;
+    temp = given->next;
+    given->next = temp->next;
+    delete temp;
 }
 
 int LinkedList::GetElement(int index) {
@@ -112,4 +112,3 @@ void LinkedList::Print() {
         cout << "NULL" << endl;
     }
 }
-
