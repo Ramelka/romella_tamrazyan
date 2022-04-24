@@ -14,7 +14,7 @@ class LinkedList {
         Node *tail;
     public:
         LinkedList();
-		Node* GetHead(); 
+	Node* GetHead(); 
         void Add(int);              // Add a node at the end of list
         void AddAt(Node *, int);    // Add a node after the given node 
         void Remove();              // Remove the last node of list
