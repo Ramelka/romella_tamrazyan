@@ -1,114 +1,110 @@
 #include "linked_list.h"
 #include <iostream>
-#include <cassert>
 
-using namespace std;
+Node::Node() {
 
-Node::Node()
-{
-    next = NULL;
+    _next = NULL;
 }
 
-LinkedList::LinkedList()
-{
-    head = NULL;
-    tail = NULL;
+LinkedList::LinkedList() {
+
+    _head = NULL;
+    _tail = NULL;
+    _count = 0;
 }
 
-Node *LinkedList::GetHead() {
-    return head;
+LinkedList::~LinkedList() {
+
+    RemoveAll();
 }
 
-void LinkedList::Add(int num) {
+void LinkedList::Add(int value) {
 
     Node *new_node = new Node;
-    new_node->data = num;
-    new_node->next = NULL;
+    new_node->_data = value;
+    new_node->_next = NULL;
 
-    if (head == NULL) {
-        head = new_node;
-        tail = new_node;
+    if (_head == NULL) {
+        _head = new_node;
+        _tail = new_node;
     } else {
-        tail->next = new_node;
-        tail = tail->next;
+        _tail->_next = new_node;
+        _tail = _tail->_next;
     }
+    ++_count;
 }
 
-void LinkedList::AddAt(Node *prev_node, int value) {
+void LinkedList::AddAt(int index, int value) {
 
-    if (prev_node == NULL) {
-        cout << " The previous node mustn't be NULL" << endl;
-        return;
+    Node *temp = _head;
+    for (int i = 0; i < index - 1; i++) {
+        temp = temp->_next;
     }
     Node *new_node = new Node();
-    new_node->data = value;
-    new_node->next = prev_node->next;
-    prev_node->next = new_node;
+    new_node->_data = value;
+    new_node->_next = temp->_next;
+    temp->_next = new_node;
+    ++_count;
 }
 
-void LinkedList::Remove() {
+void LinkedList::RemoveLast() {
 
-    Node *temp1 = head;
-    if (temp1 == NULL) {
-        cout << "List is empty" << endl;
-    } else if (temp1->next == NULL) {
-        delete(temp1);
-        temp1 = NULL;
-    } else {
-        Node *temp2 = head;
-        while (temp2->next->next != NULL) {
-            temp2 = temp2->next;
+    RemoveAt(CountOfNodes() - 1);
+}
+
+void LinkedList::RemoveAt(int index) {
+
+    if (CountOfNodes() > 1) {
+        Node *prev = _head;
+
+        for (int i = 0; i < index - 1; i++) {
+            prev = prev->_next;
         }
-        delete(temp2->next);
-        temp2->next = NULL;
+        Node *temp;
+        temp = prev->_next;
+        prev->_next = temp->_next;
+        delete temp;
+        --_count;
+    } else {
+        _head = NULL;
+        _tail = NULL;
+        _count = 0;
     }
 }
 
-void LinkedList::RemoveAt(Node *given) {
+void LinkedList::RemoveAll() {
 
-    Node *temp;
-    temp = given->next;
-    given->next = temp->next;
-    delete temp;
+    while (_count > 0) {
+        RemoveLast();
+    }
 }
 
-int LinkedList::GetElement(int index) {
+int LinkedList::GetElementAt(int index) {
 
     int count = 0;
-    Node *temp = head;
-
+    Node *temp = _head;
     while (temp != NULL) {
         if (count == index) {
-            return temp->data;
+            return temp->_data;
         }
-        count++;
-        temp = temp->next;
+        ++count;
+        temp = temp->_next;
     }
-    assert(0);
+    return 0;
 }
 
 int LinkedList::CountOfNodes() {
 
-    Node *temp = head;
-    int count = 0;
-
-    while (temp != NULL) {
-        count++;
-        temp = temp->next;
-    }
-    return count;
+    return _count;
 }
 
-void LinkedList::Print() {
+ostream& operator << (ostream& COUT, const LinkedList& list) {
 
-   if (head == NULL) {
-        cout << "Linked list is empty" << endl;
-    } else {
-        Node *temp = head;
-        while (temp != NULL) {
-            cout << temp->data << ", ";
-            temp = temp->next;
-        }
-        cout << "NULL" << endl;
+    Node *temp = list._head;
+    while (temp != NULL) {
+        COUT << temp->_data << ", ";
+        temp = temp->_next;
     }
+    COUT << endl;
+    return COUT;
 }
