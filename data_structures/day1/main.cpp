@@ -6,34 +6,36 @@ using namespace std;
 int main() {
 
     LinkedList l;
-    Node *head = NULL;
 
     // Initializing the linked list with 20 random values
     for (int i = 0; i < 20; i++) {
         l.Add(rand() % 10);
     }   
-    l.Print();
+    cout << l;
    
-    // Adding value after the third node 
-    l.AddAt(l.GetHead()->next->next, 25);
-    l.Print();  
+    // Adding value at index three
+    l.AddAt(3, 25);
+    cout << l;  
 
-    // Delete the last node of the list
-    l.Remove();
-    l.Print();
+    // Deleting the last value of the list
+    l.RemoveLast();
+    cout << l;
 
-    // Deleting the fourth value of linked list
-    l.RemoveAt(l.GetHead()->next->next);
-    l.Print();
+    // Deleting the value of index three
+    l.RemoveAt(3);
+    cout << l;
 
-    // Getting the second value of linked list
-    int elem = l.GetElement(1);
-    cout << "Second Element = " << elem << endl;
+    // Getting the value at index one
+    int value = l.GetElementAt(1);
+    cout << "Second value = " << value << endl;
 
     // Getting the count of nodes
     int count = l.CountOfNodes();
     cout << "Count of nodes = " << count << endl;
 
+    // Removing all the values of list
+    l.RemoveAll();
+    cout << l;
+        
     return 0;
 }
-
