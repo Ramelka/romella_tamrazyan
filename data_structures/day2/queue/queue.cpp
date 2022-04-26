@@ -1,23 +1,24 @@
 #include "queue.h"
+#include <iostream>
 
 void Queue::PushBack(int value) {
         
-    _queue.Add(value);
+    _queueContainer.Add(value);
 }
 
 int Queue::PopFront() {
     
-    int value = _queue.GetElementAt(0);
-    _queue.RemoveAt(0);
-    return value;
+    int temp = _queueContainer.GetElementAt(0);
+    _queueContainer.RemoveAt(0);
+    return temp;
 }
 
 bool Queue::isEmpty() {
     
-    return _queue.CountOfNodes() == 0;
+    return _queueContainer.Count() == 0;
 }
 
 ostream& operator << (ostream &COUT, const Queue& queue) {
     
-    return COUT << queue._queue;
+    return COUT << queue._queueContainer;
 }
