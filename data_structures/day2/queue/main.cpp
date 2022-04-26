@@ -1,4 +1,4 @@
-#include "../day1/linked_list.h"
+#include "../../day1/linked_list.h"
 #include "queue.h"
 #include <iostream>
 
@@ -8,12 +8,12 @@ int main() {
 	
 	// Initializing the stack 
 	for (int i = 0; i < 20; i++) {
-        s.PushBack(rand() % 10);
+        q.PushBack(rand() % 10);
     }   
     cout << q;
     
-	// Remove the first value
-	int value = q.PopFront();
+	cout << "Removing the first value " << endl;
+	q.PopFront();
 	cout << q;
 
     return 0;
