@@ -2,27 +2,27 @@
 
 void Stack::Push(int value) {
         
-    _stack.Add(value);
+    _stackContainer.Add(value);
 }
 
 int Stack::Pop() {
     
     int top = Peek();
-    _stack.RemoveLast();
+    _stackContainer.RemoveLast();
     return top;
 }
 
 int Stack::Peek() {
     
-    return _stack.GetElementAt(_stack.CountOfNodes() - 1); 
+    return _stackContainer.GetElementAt(_stackContainer.Count() - 1); 
 }
 
 bool Stack::isEmpty() {
     
-    return _stack.CountOfNodes() == 0;
+    return _stackContainer.Count() == 0;
 }
 
 ostream& operator << (ostream &COUT, const Stack& stack) {
     
-    return COUT << stack._stack;
+    return COUT << stack._stackContainer;
 }
