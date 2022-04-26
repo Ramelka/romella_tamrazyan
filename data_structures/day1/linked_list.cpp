@@ -49,12 +49,12 @@ void LinkedList::AddAt(int index, int value) {
 
 void LinkedList::RemoveLast() {
 
-    RemoveAt(CountOfNodes() - 1);
+    RemoveAt(Count() - 1);
 }
 
 void LinkedList::RemoveAt(int index) {
 
-    if (CountOfNodes() > 1) {
+    if (Count() > 1) {
         Node *prev = _head;
 
         for (int i = 0; i < index - 1; i++) {
@@ -93,7 +93,7 @@ int LinkedList::GetElementAt(int index) {
     return 0;
 }
 
-int LinkedList::CountOfNodes() {
+int LinkedList::Count() {
 
     return _count;
 }
