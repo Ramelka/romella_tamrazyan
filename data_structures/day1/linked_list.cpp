@@ -35,15 +35,21 @@ void LinkedList::Add(int value) {
 }
 
 void LinkedList::AddAt(int index, int value) {
-
-    Node *temp = _head;
-    for (int i = 0; i < index - 1; i++) {
-        temp = temp->_next;
-    }
+    
     Node *new_node = new Node();
     new_node->_data = value;
-    new_node->_next = temp->_next;
-    temp->_next = new_node;
+    if (index == 0) {
+        new_node->_next = _head;
+        _head = new_node;
+    } else {
+        Node *temp = _head;
+        for (int i = 0; i < index - 1; i++) {
+            temp = temp->_next;
+        }
+
+        new_node->_next = temp->_next;
+        temp->_next = new_node;
+    }
     ++_count;
 }
 
@@ -54,7 +60,11 @@ void LinkedList::RemoveLast() {
 
 void LinkedList::RemoveAt(int index) {
 
-    if (Count() > 1) {
+    if (index == 0) {
+        Node* tmp = _head;
+        _head = _head->_next;
+        delete tmp; 
+    } else  {
         Node *prev = _head;
 
         for (int i = 0; i < index - 1; i++) {
@@ -64,12 +74,9 @@ void LinkedList::RemoveAt(int index) {
         temp = prev->_next;
         prev->_next = temp->_next;
         delete temp;
-        --_count;
-    } else {
-        _head = NULL;
-        _tail = NULL;
-        _count = 0;
-    }
+        
+    } 
+    --_count;
 }
 
 void LinkedList::RemoveAll() {
