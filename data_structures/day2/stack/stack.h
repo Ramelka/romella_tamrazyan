@@ -1,11 +1,11 @@
 #ifndef STACK_H
 #define STACK_H
 
-#include "../day1/linked_list.h"
+#include "../../day1/linked_list.h"
 
 class Stack {
     private:
-        LinkedList _stack;
+        LinkedList _stackContainer;
     public:
         Stack() = default;
         ~Stack() = default;
