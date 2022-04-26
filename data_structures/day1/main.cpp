@@ -30,7 +30,7 @@ int main() {
     cout << "Second value = " << value << endl;
 
     // Getting the count of nodes
-    int count = l.CountOfNodes();
+    int count = l.Count();
     cout << "Count of nodes = " << count << endl;
 
     // Removing all the values of list
