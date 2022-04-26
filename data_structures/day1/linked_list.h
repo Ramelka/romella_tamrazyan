@@ -26,9 +26,8 @@ class LinkedList {
         void RemoveAt(int);         // Remove node of the given index
         void RemoveAll();           // Remove all the nodes
         int GetElementAt(int);      // Get element of the given node
-        int CountOfNodes();         // Get count of nodes
+        int Count();                // Get count of nodes
         friend ostream& operator << (ostream& COUT, const LinkedList& list);    
 };
 
 #endif
-
