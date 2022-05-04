@@ -10,6 +10,7 @@ class Tree {
     public:
         Node* GetRoot() const;
         Node* Insert(Node* &, int);
+        Node* Delete(Node*, int);
         void PrintBfs(Node*);
         void PrintIncreasingOrder(Node*);
         Tree(int);
@@ -31,6 +32,34 @@ Node* Tree::Insert(Node* &root, int value){
         root->_left = Insert(root->_left, value);
     } else { 
         root->_right = Insert(root->_right, value);
+    }
+    return root;
+}
+
+Node *Tree::Delete(Node *root, int value) {
+    
+    if (root == NULL) {
+        return NULL;
+    }
+    if (value < root->_data) {
+        root->_left = Delete(root->_left, value);
+    } else if (value > root->_data) {
+        root->_right = Delete(root->_right, value);
+    } else {
+        if (root->_left == NULL && root->_right == NULL) {
+            root = NULL;
+        } else if (root->_left == NULL) {
+            root = root->_right;
+        } else if (root->_right == NULL) {
+            root = root->_left;
+        } else {
+            Node *temp = root->_right;
+            while (temp->_left) {
+                temp = temp->_left;
+            }
+            root->_data = temp->_data;
+            root->_right = Delete(root->_right, temp->_data);
+        }
     }
     return root;
 }
