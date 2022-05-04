@@ -1,6 +1,4 @@
-#include "tree.h"
-
-using namespace std;
+#include "tree.hpp"
 
 int main() {
 
@@ -12,7 +10,12 @@ int main() {
     t->Insert(temp, 13);
     t->Insert(temp, 6);
     t->Insert(temp, 2);
+    t->Insert(temp, 8);
+    t->Insert(temp, 9);
     t->PrintBfs(temp);
+    t->PrintIncreasingOrder(temp);
+    cout << endl;
+    t->Delete(temp, 6);
     t->PrintIncreasingOrder(temp);
     cout << endl;
 
