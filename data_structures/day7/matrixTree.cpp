@@ -1,5 +1,5 @@
 #include <iostream>
-#include "binaryTree.cpp"
+#include "../day5/binaryTree.hpp"
 
 using namespace std;
 
@@ -129,16 +129,14 @@ int main() {
         }
         Tree t;
         for (int i = 0; i < size; ++i){
-            t.insertNode(array[i]);
+            t.InsertNode(array[i]);
 
         }
-        t.printDFS();
+        t.PrintDfs();
     } else {
         cout << "It isn't a binary tree\n";
     }
     cout << endl;
-    cout << CheckRoot(arr, size) << endl;
-    cout << IsTree(arr, size) << endl;
     cout << "Index = " << GetRoot(arr, size) << endl;
     
     return 0;
