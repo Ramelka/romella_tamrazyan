@@ -6,6 +6,7 @@ class Graph {
     private:
         bool **matrix;
         int _verticeCount;
+        bool OutOfVerticesCount(int);
     public:
         Graph(int);
         ~Graph();
@@ -15,7 +16,7 @@ class Graph {
         void RemoveNode();
         bool IsEdgeExisted(int, int);
         int* GetAdjacentVertices(int);
-        //int GetVerticeConnections(int);
+        //void GetVerticeConnections(int);
         void PrintMatrix();
 };
 
@@ -34,15 +35,25 @@ Graph::Graph(int verticeCount) {
 Graph::~Graph() {
 
     delete matrix;
+    delete[] matrix;
+}
+
+bool Graph::OutOfVerticesCount(int index) {
+
+    if (index >= _verticeCount || index < 0) {
+        cout << "Out of vertices count\n";
+        return true;
+    }
+    return false;
 }
 
 void Graph::AddEdge(int i, int j) {
 
-    if (i >= _verticeCount || j >= _verticeCount) {
-        cout << "Out of vertices count\n";
-    } else if (matrix[i][j] == true && matrix[j][i] == true) {
+    if (OutOfVerticesCount(i) || OutOfVerticesCount(j)) {
+       return;
+    } else if (matrix[i][j]) {
         cout << "Vertices are already connected\n";
-    } else {
+    } else  {
         matrix[i][j] = true;
         matrix[j][i] = true;
     }
@@ -50,9 +61,9 @@ void Graph::AddEdge(int i, int j) {
 
 void Graph::RemoveEdge(int i, int j) {
 
-    if (i >= _verticeCount || j >= _verticeCount) {
-        cout << "Out of vertices count\n";
-    } else if (matrix[i][j] == false && matrix[j][i] == false) {
+    if (OutOfVerticesCount(i) || OutOfVerticesCount(j)) {
+        return;
+    } else if (!matrix[i][j]) {
         cout << "Vertices aren't connected\n";
     } else {
         matrix[i][j] = false;
@@ -96,10 +107,10 @@ void Graph::RemoveNode() {
 
 bool Graph::IsEdgeExisted(int i, int j) {
 
-    if (matrix[i][j] == true) {
-        return true;
-    }
-    return false;
+    if(OutOfVerticesCount(i) || OutOfVerticesCount(j)) {
+        return false;
+    } else 
+        return matrix[i][j];    
 }
 
 int* Graph::GetAdjacentVertices(int vertice) {
@@ -110,12 +121,12 @@ int* Graph::GetAdjacentVertices(int vertice) {
             arr[j] = j;
             cout << arr[j] << " ";
         }
-    }   
+    }
     return arr;
     delete arr;
 }
 
-/*int Graph::GetVerticeConnections(int vertice) {
+/*void Graph::GetVerticeConnections(int vertice) {
 
 }*/
 
