@@ -7,10 +7,10 @@ int main() {
     g.AddEdge(0, 2);
     g.AddEdge(1, 2);
     g.PrintMatrix();
-    cout << g.IsEdgeExisted(2, 1);
-    cout << g.IsEdgeExisted(2, 2);
-    g.AddEdge(0, 1);
-    g.RemoveEdge(0, 0);
+    g.IsEdgeExisted(4, 1);
+    cout << g.IsEdgeExisted(2, 2) << endl;
+    cout << g.IsEdgeExisted(1, 2) << endl;
+    g.RemoveEdge(4, 1);
     g.PrintMatrix();
     g.AddNode();
     g.AddEdge(3, 3);
@@ -18,6 +18,6 @@ int main() {
     g.RemoveNode();
     g.PrintMatrix();
     g.GetAdjacentVertices(0);
-    
+  
     return 0;
 }
