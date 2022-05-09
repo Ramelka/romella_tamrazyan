@@ -17,6 +17,7 @@ int main() {
     g.PrintMatrix(); 
     g.RemoveNode();
     g.PrintMatrix();
+    g.GetAdjacentVertices(0);
     
     return 0;
 }
