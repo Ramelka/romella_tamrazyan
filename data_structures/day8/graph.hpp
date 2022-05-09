@@ -14,8 +14,8 @@ class Graph {
         void AddNode();
         void RemoveNode();
         bool IsEdgeExisted(int, int);
-        //int GetAdjacentNodes(int);
-        //int GetNodeConnections(int);
+        int* GetAdjacentVertices(int);
+        //int GetVerticeConnections(int);
         void PrintMatrix();
 };
 
@@ -101,6 +101,23 @@ bool Graph::IsEdgeExisted(int i, int j) {
     }
     return false;
 }
+
+int* Graph::GetAdjacentVertices(int vertice) {
+
+    int *arr = new int[_verticeCount];
+    for (int j = 0; j < _verticeCount; ++j) {
+        if (matrix[vertice][j] == 1) {
+            arr[j] = j;
+            cout << arr[j] << " ";
+        }
+    }   
+    return arr;
+    delete arr;
+}
+
+/*int Graph::GetVerticeConnections(int vertice) {
+
+}*/
 
 void Graph::PrintMatrix() {
 
