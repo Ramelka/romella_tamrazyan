@@ -1,0 +1,19 @@
+@media (max-width: 1000px) {
+    .images {
+        display: none;
+    }
+    
+    #cat4 {
+        display: none;
+    }
+
+    #js {
+        display: none;
+    }
+}
+
+@media (max-width: 780px) {
+    #cat7 {
+        display: none;
+    }
+}
