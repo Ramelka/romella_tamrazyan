@@ -1,39 +1,38 @@
 "use strict"
 
 //task1
-const input = prompt("Input a text");
-
-function toUppercase(input) {
-    const words = input.split(" ");
-    const firstWord = words[0].toUpperCase();
-    words.shift();
-    const sentence = words.join(' ');
-    const result = firstWord.concat(' ', sentence);
-    return result;
+const toUppercase = (input) => {
+    const splitted = input.split(" ");
+    return(splitted[0].toUpperCase() + ' ' + splitted.slice(1).join(' '));
 }
-console.log(toUppercase(input));
+console.log(toUppercase('Javascript is a programming language'));
 
 //task2
 function DivideArray(arr, size) {
+    if (size === 0) {
+        return arr;
+    }
+
     const subArrays = [];
     for (let i = 0; i < arr.length; i += size) {
         subArrays.push(arr.slice(i, i + size))
-    }
+    } 
     return subArrays;
 }
 console.log(DivideArray([1, 2, 3, 4, 5, 6, 7, 8], 3));
+console.log(DivideArray([1, 2, 3, 4, 5, 6, 7, 8], 0));
 
 //task3
 function SumOfNumbers(object) {
     let sum = 0;
     for (const [key, value] of Object.entries(object)) {
-        if(!isNaN(value)){
-            sum += value;
+        if(typeof(value) === "number"){
+            sum += (value);
         }
     }
     return sum;
 }
-const object = { a: 10, b: 20, c: 'string', d: 12 }
+const object = { a: 10, b: 20, c: '2', d: 12 }
 console.log(SumOfNumbers(object));
 
 //task4
@@ -56,12 +55,7 @@ function SumOfNumbers(array) {
     let SumOfNegativeNum = 0;
 
     for (const num of array) {
-        if (num > 0) {
-            SumOfPositiveNum += num;
-        }
-        else {
-            SumOfNegativeNum += num;
-        }
+        (num > 0) ? SumOfPositiveNum += num : SumOfNegativeNum += num;
     }
     const result = { positive: SumOfPositiveNum, negative: SumOfNegativeNum };
     return result;
@@ -77,16 +71,9 @@ const data = [
     { id: 5, name: 'Name one', city: 'Yerevan' },
 ];
 
-const arr = [];
-
-function GetUniqueCities(cities) {
-    for (let i = 0; i < cities.length; i++) {
-        arr.push(cities[i].city);
-    }
-    const Array = [...new Set(arr)];
-    return Array;
-}
-console.log(GetUniqueCities(data));
+const GetUniqueCities = data.map((el) => {return el.city});
+const arr = [...new Set(GetUniqueCities)];
+console.log(arr);
 
 //task7
 function AreStringsAnagram(input1, input2) {
