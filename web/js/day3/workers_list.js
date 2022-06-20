@@ -7,7 +7,7 @@ const newArr = parsed.map(obj => ({ name: obj.name, position: obj.hr.position, s
 console.log(newArr, "===New array");
 
 //Task2  Finding employees that get salary greater than 150000 
-const highSalary = parsed.filter(obj => Number(obj.hr.salary.replace(/[^\d\.\-]/g, '') >= 150000));
+const highSalary = parsed.filter(obj => Number(obj.hr.salary.replace(/[^\d]/g, '') >= 150000));
 console.log(highSalary, "===The employees whose salary is greater than 150000");
 
 //Task3  Finding the earliest employee
@@ -15,27 +15,39 @@ const earliestEmployee = parsed.sort((b, a) => (new Date(b.hr.start_date) - new 
 console.log(earliestEmployee, "===The earliest employee");
 
 //Task4  Finding employees that get salary less than 100000 
-const middleSalary = parsed.filter(obj => Number(obj.hr.salary.replace(/[^\d\.\-]/g, '')) <= 100000)
-const bonus = middleSalary.map (obj => ({ ...obj, ...obj.hr, bonus: Number(obj.hr.salary.replace(/[^\d\.\-]/g, '')) * 20 / 100 }));
-console.log(bonus, "===The employees whose salary is less than 100000");
+const middleSalary = parsed.filter(obj => Number(obj.hr.salary.replace(/[^\d]/g, '')) <= 100000)
+middleSalary.forEach(obj => {
+    obj.hr.bonus = Number(obj.hr.salary.replace(/[^\d]/g, '')) * 20 / 100;
+});
+console.log(middleSalary, "===The employees whose salary is less than 100000");
 
 //Task5  Get employees list by city they work
-const countByCities = parsed.reduce((counter, obj) => ((counter[obj.contact[0]] = counter[obj.contact[0]] ? counter[obj.contact[0]] += 1 : 1), counter), {});
-console.log(countByCities);
+const cities = parsed.map(obj => obj.contact[0]);
+console.log(cities, "===Cities");
+const count = {};
+cities.forEach(elem => { 
+    if(count[elem]) {
+        count[elem]++;
+    } else {
+        count[elem] = 1;
+    }
+    return count;
+});
+console.log(count, "Employees' count by cities");
 
 //Task6  To fire an employee
 //a) Print the text "Please wait" and wait three seconds
 console.log("BOSS-Please wait...I'm thinking...");
 
 //b) Print an array with all employees' names
-const employeesList = parsed.map(obj => obj.name);  
-setTimeout(() => { console.log("List of all our employees\n", employeesList); }, 3000);
-
 //c) Delete randomly an employee from the above array
-const index = Math.floor(Math.random() * employeesList.length);
-const randomEmployee = employeesList[index];
-setTimeout(() => { console.log("Sorry ", randomEmployee, ",you are fired from work"); }, 4000);
-
 //d) Print the new array
-setTimeout(() => { employeesList.splice(index, 1); }, 4000);
-setTimeout(() => { console.log("New list of our employees\n", employeesList); }, 4000);
+const employeesList = parsed.map(obj => obj.name);  
+setTimeout(() => { 
+    console.log("List of all our employees\n", employeesList); 
+    const index = Math.floor(Math.random() * employeesList.length);
+    const randomEmployee = employeesList[index];
+    console.log("Sorry ", randomEmployee, ",you are fired from work");
+    employeesList.splice(index, 1);
+    console.log("New list of our employees\n", employeesList);
+}, 3000);
