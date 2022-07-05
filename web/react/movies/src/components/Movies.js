@@ -1,5 +1,7 @@
+import React from 'react'
 import './Movies.css';
-import Button from './Button'
+import Button from './reusable/button/Button'
+import { Link } from 'react-router-dom';
 
 function Movies(props) {
     const moviesItems = props.movies.map((elem) => {
@@ -13,6 +15,7 @@ function Movies(props) {
                     buttonText="Delete"
                     buttonClick={() => props.deleteMovie(elem.id)}
                 />
+                <Link to={`/movies/${elem.id}`}>Go to</Link>
             </div>
         )
     });

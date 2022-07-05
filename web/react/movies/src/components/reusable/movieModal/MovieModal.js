@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Button from './Button';
-import Input from './Input';
+import Button from '../button/Button';
+import Input from '../input/Input';
 import './MovieModal.css';
 
 function AddMovieModal(props) {
@@ -17,6 +17,7 @@ function AddMovieModal(props) {
         props.setMoviesList([...props.moviesList, newMovie]);
         props.closeModal();
     }
+    
 
     const changeName = (evt) => {
         setName(evt.target.value);
