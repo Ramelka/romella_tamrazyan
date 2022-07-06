@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { MovieContext } from '../../AppRouter'
 import AddMovieModal from '../../reusable/movieModal/MovieModal';
 import Input from '../../reusable/input/Input';
 import Button from '../../reusable/button/Button';
 import Movies from '../../Movies';
-import movies from '../../../movies';
 
 function MoviesPage() {
+	const { moviesList, setMoviesList } = useContext(MovieContext);
     const [value, setValue] = useState('');
-	const [moviesList, setMoviesList] = useState(movies);
-	const [filteredMovies, setFilteredMovies] = useState(moviesList);
+	const [filteredMovies, setFilteredMovies] = useState([moviesList]);
 	const [modal, setModal] = useState(false);
 
 	useEffect(() => {
