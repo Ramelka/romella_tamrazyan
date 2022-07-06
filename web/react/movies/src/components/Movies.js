@@ -1,7 +1,6 @@
-import React from 'react'
-import './Movies.css';
-import Button from './reusable/button/Button'
 import { Link } from 'react-router-dom';
+import Button from './reusable/button/Button'
+import './Movies.css';
 
 function Movies(props) {
     const moviesItems = props.movies.map((elem) => {
