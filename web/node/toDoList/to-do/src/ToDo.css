@@ -1,0 +1,11 @@
+ul.list {
+    list-style-type: none;
+}
+
+.todo-div {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

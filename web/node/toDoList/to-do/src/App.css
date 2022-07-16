@@ -1,0 +1,12 @@
+ul.users-block {
+    text-align: center;
+    list-style-type: none;
+}
+
+li.user {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
